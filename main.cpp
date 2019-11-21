@@ -1,80 +1,62 @@
 #include <iostream>
+#include <stdlib.h>
 
 using namespace std;
-int inputarrSize();
-void getBasicinfo(string[], string[], int[], int[], string[], string[], string[]);
-void disPlayarray(string[], string[], int[], int[], string[], string[], string[]);
+
+class product
+{
+public:
+    void addproduct (int Product_id, int Price, int Expiration_date, string Product_name, string Manufacturer);
+    void DisplayProducts ();
+product();
+private:
+    int Product_id, Price, Expiration_date;
+    string Product_name, Manufacturer;
+    };
+
+product::product (void){
+    string choice;
+
+    cout << "ALA EH SINSAY NA DINE SA TINDAHAN NI ANN " << endl;
+
+    cout << "Do you want to add products? Yes or No "<< endl;
+    cin >> choice;
+
+    if (choice=="Y" || choice=="y")
+    {
+    cout<<" Product ID: " ;
+    cin >> Product_id;
+    cout<<" Product Name: " ;
+    cin >> Product_name;
+    cout<<" Price: " ;
+    cin >> Price;
+    cout<<"Manufacturer: " ;
+    cin >> Manufacturer;
+    cout<<"Expiration Date: " ;
+    cin >> Expiration_date;
+}
+
+}
 
 
-int arrSize;
+void product::DisplayProducts()
+{
+    system("CLS");
+    system ("color 3");
+    cout << "The Product ID is: " << Product_id<< endl;
+    cout << "The Product Name is: " << Product_name<< endl;
+    cout << "The Price is: " << Price<< endl;
+    cout << "The product Manufacturer: " << Manufacturer<< endl;
+    cout << "The Product Expiration is: " << Expiration_date<< endl;
+
+}
 
 int main()
 {
-    string firstname [10];
-    string lastname[10] ;
-    int age[10];
-    int contact[10];
-    string email[10];
-    string address[10];
-    string username[10];
-    getBasicinfo(firstname, lastname, age, contact, email, address, username);
-    disPlayarray(firstname, lastname, age, contact, email, address, username);
+    product product;
+
+    product.DisplayProducts();
+
 
     return 0;
-}
-
-int inputarrSize()
-{
-    int age [arrSize];
-
-    cout <<" Enter Array Size:";
-    cin >> arrSize;
-
-    return arrSize;
-}
-
-void getBasicinfo(string firstname[], string lastname[], int age[], int contact[], string email[], string address[], string username[])
-{
-    inputarrSize();
-    for (int i=0;i<arrSize;i++){
-    cout <<" Firstname "<< ":";
-    cin >> firstname[i];
-    }
-
-     for (int i=0;i<arrSize;i++){
-    cout <<" Lastname "<< ":";
-    cin >> lastname[i];
-    }
-
-    for (int i=0;i<arrSize;i++){
-    cout <<" Age "<< ":";
-    cin >> age[i];
-    }
-
-    for (int i=0;i<arrSize;i++){
-    cout <<" Contact "<< ":";
-    cin >> contact[i];
-    }
-
-    for (int i=0;i<arrSize;i++){
-    cout <<" E-mail "<< ":";
-    cin >> email[i];
-    }
-
-    for (int i=0;i<arrSize;i++){
-    cout <<" Address "<< ":";
-    cin >> address[i];
-    }
-
-    for (int i=0;i<arrSize;i++){
-    cout <<" Username "<< ":";
-    cin >> username[i];
-    }
-}
-
-void disPlayarray(string firstname[], string lastname[], int age[], int contact[], string email[], string address[], string username[]){
-
-    for (int i=0;i<arrSize;i++){
-    cout << firstname [i]<< "|" << lastname[i]<< "|" << age[i]<< "|" << contact[i]<< "|" << email[i]<< "|" << address[i]<< "|" << username[i]<<endl ;
-    }
 }
